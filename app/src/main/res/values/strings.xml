@@ -109,4 +109,5 @@
     <string name="search_icon">Search icon</string>
     <string name="notifications_icon">notifications icon</string>
     <string name="discover"> <u>Discover Amazing Events</u> </string>
+    <string name="confirmation">Now you can easily reset your password by respecting those required for the password.</string>
 </resources>

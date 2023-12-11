@@ -47,7 +47,4 @@ dependencies {
 
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
-
-    // OTP view
-    implementation("com.github.mukeshsolanki.android.otpview-pinview:otpview:3.1.0")
 }
