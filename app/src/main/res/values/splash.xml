@@ -3,8 +3,7 @@
 
     <style name="Theme.AnimatedSplash.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_dark</item>
-        <item name="splashScreenIconSize">250dp</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/avd_anim</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/grey</item>
         <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/Theme.Event_App</item>
