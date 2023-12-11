@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#FF191A1F</color>
+    <color name="background_container">#202029</color>
+    <color name="focus_input">#1E192F</color>
+    <color name="purple_button_background">#781AEA</color>
+    <color name="focus_input_border">#7B26FF</color>
+    <color name="material_purple_light_2">#FF9044FE</color>
+    <color name="material_purple_light_1">#FFB388FF</color>
+    <color name="grey">#555761</color>
+    <color name="dark_grey">#33343A</color>
+    <color name="title_white">#F5F6FB</color>
+    <color name="subtitle_purple">#D1C4E9</color>
 </resources>

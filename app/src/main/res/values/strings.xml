@@ -1,3 +1,112 @@
 <resources>
-    <string name="app_name">Event_App</string>
+    <string name="app_name">Events</string>
+
+    <!--Onboarding-->
+    <string name="onboarding_1_title">Hey, Ready for tonight.</string>
+    <string name="onboarding_1_subtitle">Let us find an event in your interest.</string>
+    <string name="onboarding_2_title">Hey, you have so many choice.</string>
+    <string name="onboarding_2_subtitle">Let us become party friends.</string>
+    <string name="onboarding_3_title">Join the Journey, start now.</string>
+    <string name="skip">Skip</string>
+
+    <!--Login / Sign In-->
+    <string name="hello">Hello Again !</string>
+    <string name="let_you">Let us you in</string>
+    <string name="hello_subtitle">Welcome back, you have been missed.</string>
+    <string name="google_sign_in">Sign In with Google</string>
+    <string name="apple_sign_in">Sign In with Apple</string>
+    <string name="password_sign_in">Sign In with password</string>
+    <string name="google_sign_up">Sign Up with Google</string>
+    <string name="do_not_have_account">Do not have an account ?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login">Log In</string>
+    <string name="login_account">Log In to your Account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forgot Password ?</string>
+    <string name="change_password">Your have successfully changed your password</string>
+    <string name="have_not_account">You do not already have an account ?</string>
+
+    <string name="or">Or</string>
+
+    <!--Sign up-->
+    <string name="create_account">Create an Account</string>
+    <string name="started">Let us Get Started</string>
+    <string name="started_subtitle">Sign up or login to start in the app.</string>
+    <string name="email_continue">Continue with Email</string>
+    <string name="google_continue">Continue with Google</string>
+    <string name="apple_continue">Continue with Apple</string>
+    <string name="apple_sign_up">Sign Up with Apple</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="place_of_birth">Place of birth</string>
+    <string name="payment">Means of payment</string>
+    <string name="phone_no">Phone number</string>
+    <string name="city">Profile</string>
+
+    <!--Topics-->
+    <string name="choice_topics">Choose Topics</string>
+    <string name="choice_topics_subtitle">You can choose at least 3 topics to continue.</string>
+
+    <!--Menu-->
+    <string name="home">Home</string>
+    <string name="tickets">Tickets</string>
+    <string name="profile">Profile</string>
+    <string name="interest">Interest</string>
+
+    <!--Notifications-->
+    <string name="notifications">Notifications</string>
+
+    <!--Profile-->
+    <string name="favorite">Favorite</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="friend">Friends</string>
+
+    <!--Events property-->
+    <string name="description">Description</string>
+    <string name="place">Place</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="tags">Tags</string>
+    <string name="price">Price</string>
+
+    <!--Ticket-->
+    <string name="approved">Approved</string>
+    <string name="buy_ticket">Buy ticket</string>
+    <string name="ticket_complete">Reservation Complete</string>
+    <string name="view_ticket">View Ticket</string>
+    <string name="ticket_details">Detail Ticket</string>
+
+    <!--Home page-->
+    <string name="upcoming_event">Upcoming Events</string>
+    <string name="search">Search all events</string>
+    <string name="popular">Popular One</string>
+    <string name="recommanded">Recommaded for you</string>
+    <string name="see_all">See all</string>
+
+    <!--Description-->
+    <string name="logo_description">Logo for my app</string>
+    <string name="background_description">Image that it is on the background.</string>
+    <string name="background_image">Image for the bottom of the page</string>
+    <string name="login_background_image">Image for login page</string>
+    <string name="left_arrow_description">Arrow icon to back on the previous page</string>
+    <string name="or_continue">Or continue with</string>
+    <string name="username">username</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="choose_topics_title">Choose at least 3 Topics</string>
+    <string name="choose_topics_description">Choose your preferences to have a very good experience.</string>
+    <string name="navHome">Home</string>
+    <string name="navTicket">Ticket</string>
+    <string name="navAdd">Add</string>
+    <string name="navFavorite">Favorite</string>
+    <string name="navProfile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_icon">Search icon</string>
+    <string name="notifications_icon">notifications icon</string>
+    <string name="discover"> <u>Discover Amazing Events</u> </string>
 </resources>
