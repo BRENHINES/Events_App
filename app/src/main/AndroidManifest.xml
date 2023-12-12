@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Event_App"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ChooseTopics"
+            android:exported="false" />
+        <activity
             android:name=".presentation.ResetPasswordPage"
             android:exported="false" />
         <activity
