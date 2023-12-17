@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.event_app.R
+import com.example.event_app.data.datasource.EventCardDataSource
+import com.example.event_app.databinding.HomeFragmentBinding
+import com.example.event_app.presentation.adapter.EventCardAdapter
+import com.example.events.data.data.PopularCardDataSource
+import com.example.events.data.data.TagDatasource
+import com.example.events.presentation.adapter.PopularCardAdapter
+import com.example.events.presentation.adapter.TagAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +30,8 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding : HomeFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +44,31 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = HomeFragmentBinding.inflate(layoutInflater)
+
+        // Tag RecyclerView
+        //val TagDataSource = TagDatasource().loadTag()
+        //val TagAdapter = TagAdapter(this, TagDataSource)
+
+        //binding.tagRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        //binding.tagRecyclerView.adapter = TagAdapter
+
+        // Popular RecyclerView
+        val PopularDataSource = PopularCardDataSource().loadCard()
+        val PopularAdapter = PopularCardAdapter(this, PopularDataSource)
+
+        binding.popularRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.popularRecyclerView.adapter = PopularAdapter
+
+        // Event RecyclerView
+        val EventDataSource = EventCardDataSource().loadCard()
+        val EventAdapter = EventCardAdapter(this, EventDataSource)
+
+        binding.forYouRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.forYouRecyclerView.adapter = EventAdapter
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.home_fragment, container, false)
+        return binding.root
     }
 
     companion object {

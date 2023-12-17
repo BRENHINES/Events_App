@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/background_container"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="15dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/PopularCardImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/background"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="70dp"
+        app:shapeAppearanceOverlay="@style/roundedImageView"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="5dp"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/white"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/PopularCardDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="10"
+            android:textColor="@color/background"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/PopularCardMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dec"
+            android:textSize="14sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_gravity="center_horizontal"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="235dp"
+        android:layout_marginTop="220dp"/>
+
+    <TextView
+        android:id="@+id/PopularCardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Billie Eilish Concert"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="35dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textFontWeight="700" />
+
+    <TextView
+        android:id="@+id/PopularCardCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concert"
+        android:layout_gravity="end | bottom"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textFontWeight="700" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="225dp">
+        <TextView
+            android:id="@+id/PopularCardSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active Space"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            android:textFontWeight="700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" - "
+            android:textColor="@color/grey"
+            android:fontFamily="@font/open_sans"
+            android:textSize="16sp"
+            android:textFontWeight="700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/open_sans"
+            android:textSize="16sp"
+            android:textFontWeight="700" />
+
+        <TextView
+            android:id="@+id/PopularCardPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
+            android:text="100"
+            android:textColor="@color/grey"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:textFontWeight="700" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

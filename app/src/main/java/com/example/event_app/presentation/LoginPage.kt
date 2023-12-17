@@ -18,7 +18,7 @@ class LoginPage : AppCompatActivity() {
 
         // Binding pour la page Home
         binding.loginBtn.setOnClickListener {
-            val intent = Intent(this, SignUpPage::class.java)
+            val intent = Intent(this, HomePage::class.java)
             val options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out)
             startActivity(intent, options.toBundle())
         }

@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.event_app.R
+import com.example.event_app.data.datasource.TicketCardDatasource
+import com.example.event_app.databinding.TicketFragmentBinding
+import com.example.event_app.presentation.adapter.TicketCardAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +26,8 @@ class TicketFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: TicketFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +40,16 @@ class TicketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = TicketFragmentBinding.inflate(layoutInflater)
+
+        val TicketDatasource = TicketCardDatasource().loadCard()
+        val TicketAdapter = TicketCardAdapter(this, TicketDatasource)
+
+        binding.TicketRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.TicketRecyclerView.adapter = TicketAdapter
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.ticket_fragment, container, false)
+        return binding.root
     }
 
     companion object {

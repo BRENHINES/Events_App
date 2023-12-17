@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.event_app.R
+import com.example.event_app.data.datasource.NotificationCardDataSource
+import com.example.event_app.databinding.NotificationsFragmentBinding
+import com.example.event_app.presentation.adapter.NotificationCardAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +27,8 @@ class NotificationsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding : NotificationsFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +41,17 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = NotificationsFragmentBinding.inflate(layoutInflater)
+
+        // Notifications recycler view
+        val NotificationCardDataSource = NotificationCardDataSource().loadCard()
+        val NotificationAdapter = NotificationCardAdapter(this, NotificationCardDataSource)
+
+        binding.notificationRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.notificationRecyclerview.adapter = NotificationAdapter
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.notifications_fragment, container, false)
+        return binding.root
     }
 
     companion object {
