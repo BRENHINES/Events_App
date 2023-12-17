@@ -1,11 +1,20 @@
 package com.example.event_app.presentation.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.event_app.R
+import com.example.event_app.databinding.HomeFragmentBinding
+import com.example.event_app.databinding.ProfileFragmentBinding
+import com.example.event_app.presentation.LoginPage
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +31,12 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding : ProfileFragmentBinding
+    lateinit var auth : FirebaseAuth
+    private var db = Firebase.firestore
+    private lateinit var name : TextView
+    private lateinit var email : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +49,36 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        binding = ProfileFragmentBinding.inflate(layoutInflater)
+        auth = Firebase.auth
+
+        val name = binding.username
+        val email = binding.email
+
+        val userID = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = db.collection("users").document(userID)
+
+        ref.get().addOnSuccessListener {
+            if (it != null) {
+                val username = it.data?.get("username")?.toString()
+                val useremail = it.data?.get("email")?.toString()
+
+                name.text = username
+                email.text = useremail
+            }
+        }
+
+        binding.logout.setOnClickListener {
+            auth.signOut();
+
+            val intent = Intent(requireContext(), LoginPage::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.profile_fragment, container, false)
+        return binding.root
     }
 
     companion object {

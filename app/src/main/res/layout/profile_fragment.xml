@@ -50,6 +50,7 @@
                 android:layout_marginStart="30dp">
 
                 <TextView
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Obril"
@@ -57,6 +58,7 @@
                     android:textSize="20sp"/>
 
                 <TextView
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="obril@gmail.com"
@@ -113,6 +115,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
