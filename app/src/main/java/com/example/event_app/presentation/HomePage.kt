@@ -30,7 +30,6 @@ class HomePage : AppCompatActivity() {
                 R.id.navHome -> replaceFragment(HomeFragment())
                 R.id.navTicket -> replaceFragment(TicketFragment())
                 R.id.navAdd -> replaceFragment(AddFragment())
-                R.id.navNotification -> replaceFragment(NotificationsFragment())
                 R.id.navProfile -> replaceFragment(ProfileFragment())
 
                 else -> {  }

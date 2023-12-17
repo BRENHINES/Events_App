@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var binding : ProfileFragmentBinding
+    private lateinit var binding : com.example.event_app.databinding.ProfileFragmentBinding
     lateinit var auth : FirebaseAuth
     private var db = Firebase.firestore
     private lateinit var name : TextView

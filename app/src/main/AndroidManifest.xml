@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,19 +19,10 @@
             android:name=".presentation.HomePage"
             android:exported="false" />
         <activity
-            android:name=".presentation.ChooseTopics"
-            android:exported="false" />
-        <activity
             android:name=".presentation.ResetPasswordPage"
             android:exported="false" />
         <activity
-            android:name=".presentation.ResetPassword"
-            android:exported="false" />
-        <activity
             android:name=".presentation.ResetPasswordSubmitPage"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.OTPPage"
             android:exported="false" />
         <activity
             android:name=".presentation.ForgotPasswordPage"
@@ -49,6 +43,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/logo_dark" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/background_container" />
 
         <meta-data
             android:name="preloaded_fonts"

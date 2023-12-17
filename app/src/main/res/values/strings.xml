@@ -112,4 +112,37 @@
     <string name="confirmation">Now you can easily reset your password by respecting those required for the password.</string>
     
     <string name="default_web_id">AIzaSyBomG1PDTMV7wjdGchKB8GXib4yksePFtc</string>
+
+
+
+    <string name="popularTitle1">C# Conference</string>
+    <string name="popularTitle2">VDG Concert</string>
+    <string name="popularTitle3">Pycon</string>
+    <string name="popularTitle4">Fally Ipupa Concert</string>
+
+    <string name="popularDay1">16</string>
+    <string name="popularDay2">16</string>
+    <string name="popularDay3">18</string>
+    <string name="popularDay4">23</string>
+
+    <string name="popularMonth1">dec</string>
+    <string name="popularMonth2">dec</string>
+    <string name="popularMonth3">jan</string>
+    <string name="popularMonth4">mch</string>
+
+    <string name="popularCategory1">Conference</string>
+    <string name="popularCategory2">Concert</string>
+    <string name="popularCategory3">Conference</string>
+    <string name="popularCategory4">Concert</string>
+
+    <string name="EventPrice1">Free</string>
+    <string name="EventPrice2">100</string>
+    <string name="EventPrice3">50</string>
+    <string name="EventPrice4">75</string>
+
+    <string name="EventSpace1">Active Space Akwa</string>
+    <string name="EventSpace2">Amphi Campus 3</string>
+    <string name="EventSpace3">Canal Olympia Akwa</string>
+    <string name="EventSpace4">Stade Olembe</string>
+
 </resources>
