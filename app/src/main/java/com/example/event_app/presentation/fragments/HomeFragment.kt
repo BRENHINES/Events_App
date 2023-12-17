@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.event_app.R
 import com.example.event_app.data.datasource.EventCardDataSource
@@ -14,6 +16,9 @@ import com.example.events.data.data.PopularCardDataSource
 import com.example.events.data.data.TagDatasource
 import com.example.events.presentation.adapter.PopularCardAdapter
 import com.example.events.presentation.adapter.TagAdapter
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +36,8 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var binding : HomeFragmentBinding
+    private var db = Firebase.firestore
+    private lateinit var name : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +45,8 @@ class HomeFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
@@ -66,6 +75,20 @@ class HomeFragment : Fragment() {
 
         binding.forYouRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.forYouRecyclerView.adapter = EventAdapter
+
+        name = binding.username
+
+        val userID = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = db.collection("users").document(userID)
+
+        ref.get().addOnSuccessListener {
+            if (it != null) {
+                val username = it.data?.get("username")?.toString()
+
+                name.text = username
+                print(username)
+            }
+        }
 
         // Inflate the layout for this fragment
         return binding.root
