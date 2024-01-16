@@ -1,6 +1,7 @@
 package com.example.event_app.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.example.events.presentation.adapter.PopularCardAdapter
 import com.example.events.presentation.adapter.TagAdapter
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.firestore
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,7 +39,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding : HomeFragmentBinding
     private var db = Firebase.firestore
-    private lateinit var name : TextView
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var username_bind : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,13 +56,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
         binding = HomeFragmentBinding.inflate(layoutInflater)
-
-        // Tag RecyclerView
-        //val TagDataSource = TagDatasource().loadTag()
-        //val TagAdapter = TagAdapter(this, TagDataSource)
-
-        //binding.tagRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        //binding.tagRecyclerView.adapter = TagAdapter
+        firebaseAuth = FirebaseAuth.getInstance()
 
         // Popular RecyclerView
         val PopularDataSource = PopularCardDataSource().loadCard()
@@ -68,6 +65,9 @@ class HomeFragment : Fragment() {
         binding.popularRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.popularRecyclerView.adapter = PopularAdapter
 
+
+        username_bind = binding.username
+
         // Event RecyclerView
         val EventDataSource = EventCardDataSource().loadCard()
         val EventAdapter = EventCardAdapter(this, EventDataSource)
@@ -75,17 +75,40 @@ class HomeFragment : Fragment() {
         binding.forYouRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.forYouRecyclerView.adapter = EventAdapter
 
-        name = binding.username
+        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = db.collection("users").document(currentUserID)
 
-        val userID = FirebaseAuth.getInstance().currentUser!!.uid
-        val ref = db.collection("users").document(userID)
+        val collectionRef = db.collection("users")
+        val query = collectionRef.whereEqualTo("userID", "currentUserID")
+
+        query.get().addOnSuccessListener {
+            documents -> for (document in documents) {
+                val username = document.getString("username")
+
+                binding.username.text = username
+            }
+        }
 
         ref.get().addOnSuccessListener {
             if (it != null) {
-                val username = it.data?.get("username")?.toString()
+                val username = it.data?.get("email")?.toString()
 
-                name.text = username
-                print(username)
+                // binding.username.text = username
+
+                val user = firebaseAuth.currentUser
+                user?.let {
+                    // Name, email address, and profile photo Url
+                    val name = it.displayName
+                    val email = it.email
+                    val photoUrl = it.photoUrl
+                    // The user's ID, unique to the Firebase project. Do NOT use this value to
+                    // authenticate with your backend server, if you have one. Use
+                    // FirebaseUser.getIdToken() instead.
+                    val uid = it.uid
+
+                    // binding.username.text = email
+                }
+
             }
         }
 

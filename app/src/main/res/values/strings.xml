@@ -110,9 +110,6 @@
     <string name="notifications_icon">notifications icon</string>
     <string name="discover"> <u>Discover Amazing Events</u> </string>
     <string name="confirmation">Now you can easily reset your password by respecting those required for the password.</string>
-    
-    <string name="default_web_id">AIzaSyBomG1PDTMV7wjdGchKB8GXib4yksePFtc</string>
-
 
 
     <string name="popularTitle1">C# Conference</string>
@@ -144,5 +141,7 @@
     <string name="EventSpace2">Amphi Campus 3</string>
     <string name="EventSpace3">Canal Olympia Akwa</string>
     <string name="EventSpace4">Stade Olembe</string>
+
+    <string name="web_client_id">1098705406148-4d7tc3o1m1mhfmr4085r20tsib16m83j.apps.googleusercontent.com</string>
 
 </resources>

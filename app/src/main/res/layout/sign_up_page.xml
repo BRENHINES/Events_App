@@ -190,7 +190,7 @@
             app:drawableStartCompat="@drawable/google" />
 
         <TextView
-            android:id="@+id/apple_continue_btn"
+            android:id="@+id/anonymous_continue_btn"
             android:layout_width="76dp"
             android:layout_height="76dp"
             android:layout_gravity="center_vertical"

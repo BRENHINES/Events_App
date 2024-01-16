@@ -11,6 +11,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.event_app.R
 import com.example.event_app.databinding.LoginChoicePageBinding
 import com.example.event_app.databinding.LoginPageBinding
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -47,6 +48,13 @@ class LoginChoicePage : AppCompatActivity() {
         }
 
         // Google authentification
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
         binding.googleSignIn.setOnClickListener {
             googleSignIn();
         }
@@ -55,13 +63,6 @@ class LoginChoicePage : AppCompatActivity() {
     }
 
     private fun googleSignIn() {
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_id))
-            .requestEmail()
-            .build()
-
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         val signInClient = googleSignInClient.signInIntent
         launcher.launch(signInClient)
@@ -87,7 +88,7 @@ class LoginChoicePage : AppCompatActivity() {
                     val intent = Intent(this, HomePage::class.java)
                     startActivity(intent)
 
-                    Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }

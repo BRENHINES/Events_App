@@ -18,14 +18,14 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/party__2_"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/party__2_" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="200dp"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
@@ -38,32 +38,32 @@
                     android:id="@+id/profile_icon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/background"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/background" />
 
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="30dp">
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/username"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Obril"
                     android:textColor="@color/white"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/email"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="obril@gmail.com"
                     android:textColor="@color/grey"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

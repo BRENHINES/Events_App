@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.example.event_app.R
 import com.example.event_app.databinding.HomeFragmentBinding
 import com.example.event_app.databinding.ProfileFragmentBinding
+import com.example.event_app.presentation.LoginChoicePage
 import com.example.event_app.presentation.LoginPage
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -69,10 +70,58 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        val user = auth.currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val name = it.displayName
+            val email = it.email
+            val photoUrl = it.photoUrl
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            val uid = it.uid
+
+            print(name)
+        }
+
+        val collectionRef = db.collection("users")
+        val query = collectionRef.whereEqualTo("userID", "currentUserID")
+
+        query.get().addOnSuccessListener {
+                documents -> for (document in documents) {
+            val name = document.getString("username")
+
+            binding.username.text = name
+        }
+        }
+
+        ref.get().addOnSuccessListener {
+            if (it != null) {
+                val username = it.data?.get("email")?.toString()
+
+                // binding.username.text = username
+
+                val user = auth.currentUser
+                user?.let {
+                    // Name, email address, and profile photo Url
+                    val name = it.displayName
+                    val email = it.email
+                    val photoUrl = it.photoUrl
+                    // The user's ID, unique to the Firebase project. Do NOT use this value to
+                    // authenticate with your backend server, if you have one. Use
+                    // FirebaseUser.getIdToken() instead.
+                    val uid = it.uid
+
+                    binding.email.text = email
+                }
+
+            }
+        }
+
         binding.logout.setOnClickListener {
             auth.signOut();
 
-            val intent = Intent(requireContext(), LoginPage::class.java)
+            val intent = Intent(requireContext(), LoginChoicePage::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
